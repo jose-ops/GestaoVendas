@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Gestao de Clientes - Selecione uma opção </h2>
+
+<br/>
+<ul>                                        <!--nome controler-->
+    <li>@Html.ActionLink("Incluir Novo Cliente", "Incluir", null, new { @class = "btn btn-outline-primary" })</li><!-- 1 texto de aparace para usuario/ 2 nome dA action/ 3 opcional(controler)-->
+    <li>@Html.ActionLink("Lista Clientes", "Listar", null, new { @class = "btn btn-outline-secondary" })</li>
+</ul>
+

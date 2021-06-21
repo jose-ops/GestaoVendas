@@ -1,0 +1,54 @@
+﻿@model IEnumerable<GestaoVendas.Cap03.Models.Produto>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+<p>
+    @Html.ActionLink("Novo Produto", "Incluir", null , new {@class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Preco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Foto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Preco)
+        </td>
+        <td>
+            <img src="@Url.Action("BuscarFoto", "Produtos", new { id = item.Id })" style="width:100px;" />
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Alterar", new { id=item.Id })
+            @Html.ActionLink("Editar", "", new { id=item.Id })
+            @Html.ActionLink("Excluir", "#", new { id=item.Id })
+        
+        </td>
+    </tr>
+}
+
+</table>

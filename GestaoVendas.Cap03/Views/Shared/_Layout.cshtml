@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Vendas App</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">VendasAPP</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        @Html.ActionLink("Vendas", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cliente
+                        </a>
+                        <div class="dropdown-menu" arial-labelledby="navbarDropdown">
+                            @* @Html.ActionLink("Gestao de Clientes", "Index", "Clientes", new { @class = "btn btn-outline-primary btn-block" })*@
+                           
+                            @Html.ActionLink("Incluir Clientes", "Incluir", "Clientes", new { @class = "btn-outline-primary btn-block" })
+                           
+                            @Html.ActionLink("Alterar Clientes", "Clientes", "Alterar", new { @class = "btn-outline-primary btn-block" })
+                           
+                            @Html.ActionLink("Excluir Clientes", "Clientes", "Remover", new { @class = "btn-outline-primary btn-block" })
+                        </div>
+                    </li>
+                    <li class="nav-item ">
+                        @Html.ActionLink("Produtos", "Index", "Produtos", new { area = "" }, new { @class = "navbar-brand" })
+                    </li>
+                    <li class="nav-item ">
+                        @Html.ActionLink("Pedidos", "Index", "Pedidos", new { area = "" }, new { @class = "navbar-brand" })
+                    </li>
+                </ul>
+               
+            </div>
+            </div>
+     </nav>
+    
+    <div class="container body-content">
+        @RenderBody() <!--Aqui sera reenderizado paginas, conteudo clientes/pedidos etc-->
+        <hr />
+        <footer>
+            <p>
+                &copy; @DateTime.Now.Year - Gestão de Vendas - Turma ASP. NET - Impacta
+            </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

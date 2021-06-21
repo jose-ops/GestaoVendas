@@ -1,0 +1,65 @@
+﻿@model GestaoVendas.Cap03.Models.Cliente
+   @* //view tipada recebendo Cliente*@
+
+@{
+    ViewBag.Title = "Incluir";
+}
+
+<h2>Incluir</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken() //AntiForgeryToken criptografica o formulario
+
+    <div class="form-horizontal">
+        <h4>Cliente</h4> <!--o formulario é basiado nessa classe Clientes-->
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" }) 
+    <div class="form-group">
+        @Html.LabelFor(model => model.Documento, htmlAttributes: new { @class = "control-label col-md-2" })<!--Legenda-->
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Documento, new { htmlAttributes = new { @class = "form-control" } }) <!--cria input-->
+            @Html.ValidationMessageFor(model => model.Documento, "", new { @class = "text-danger" })<!--para criar mensagem de erro-->
+        </div>
+    </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar para Lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
